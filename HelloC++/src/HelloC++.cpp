@@ -41,6 +41,20 @@ void test_use_new() {
 	cout << "sizeof pt:" << sizeof(pt) << ",sizeof *pt:" << sizeof(*pt) << endl;
 	cout << "sizeof pd:" << sizeof(pd) << ",sizeof *pd:" << sizeof(*pd) << endl;
 }
+/**
+ * 动态申请数组及释放
+ */
+void test_array_new() {
+	double* p3 = new double[3];
+	p3[0] = 0.2;
+	p3[1] = 0.5;
+	p3[2] = 0.8;
+	cout << "p3[1]=" << p3[1] << endl;
+	p3 += 1;
+	cout << "now p3[0]=" << p3[0] << " and p3[1]=" << p3[1] << endl;
+	p3 -= 1; //如果这里不回退的话，用delete释放是不是会释放不完全？
+	delete[] p3;
+}
 
 int main() {
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
@@ -48,5 +62,6 @@ int main() {
 	test_address();
 	test_pointer();
 	test_use_new();
+	test_array_new();
 	return 0;
 }
