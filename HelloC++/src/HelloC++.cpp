@@ -55,13 +55,41 @@ void test_array_new() {
 	p3 -= 1; //如果这里不回退的话，用delete释放是不是会释放不完全？
 	delete[] p3;
 }
+/**
+ * 数组的动态联编和静态联编
+ */
+void test_static_and_dynamic_binding() {
+	int length;
+	cout << "please input array length:" << endl;
+	cin >> length;
+	int staticArray[length];
+	for (int i = 0; i < length; i++) {
+		staticArray[i] = i + 1;
+	}
+	cout << "staticArray values:" << endl;
+	for (int value : staticArray) {
+		cout << value << "\t";
+	}
+	cout << endl;
+	int* dynamicArray = new int[length];
+	for (int i = 0; i < length; i++) {
+		dynamicArray[i] = i + 10;
+	}
+	cout << "dynamicArray values:" << endl;
+	for (int i = 0; i < length; i++) {
+		cout << dynamicArray[i] << "\t";
+	}
+	cout << endl;
+	delete[] dynamicArray;
+}
 
 int main() {
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 
-	test_address();
-	test_pointer();
-	test_use_new();
-	test_array_new();
+//	test_address();
+//	test_pointer();
+//	test_use_new();
+//	test_array_new();
+	test_static_and_dynamic_binding();
 	return 0;
 }
