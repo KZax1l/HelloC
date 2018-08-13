@@ -7,6 +7,7 @@
 //============================================================================
 
 #include <iostream>
+#include <cstring>
 using namespace std;
 
 void test_address() {
@@ -90,6 +91,31 @@ int main() {
 //	test_pointer();
 //	test_use_new();
 //	test_array_new();
-	test_static_and_dynamic_binding();
+//	test_static_and_dynamic_binding();
+	void test_char_pointer_delete();
+	test_char_pointer_delete();
 	return 0;
+}
+
+void test_char_pointer_delete() {
+	char* test_get_char_pointer(void);
+	char* name;
+	name = test_get_char_pointer();
+	cout << name << " at " << (int*) name << endl;
+	delete[] name;
+
+	name = test_get_char_pointer();
+	cout << name << " at " << (int*) name << endl;
+	delete[] name;
+}
+/**
+ * 使用动态内存返回值，但要注意释放内存
+ */
+char* test_get_char_pointer() {
+	char temp[80];
+	cout << "Enter last name:";
+	cin >> temp;
+	char* pn = new char[strlen(temp) + 1];
+	strcpy(pn, temp);
+	return pn;
 }
