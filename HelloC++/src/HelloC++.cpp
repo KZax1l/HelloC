@@ -136,7 +136,7 @@ void test_char_pointer_delete() {
 	delete[] name;
 }
 /**
- * 使用动态内存返回值，但要注意释放内存
+ * 使用动态存储返回值，但要注意释放内存
  */
 char_pointer test_get_char_pointer() {
 	char temp[80];
