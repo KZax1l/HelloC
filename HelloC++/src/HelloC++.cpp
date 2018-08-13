@@ -10,6 +10,7 @@
 #include <cstring>
 #include <time.h>
 using namespace std;
+typedef char* char_pointer;
 
 void test_address() {
 	int donuts = 3;
@@ -103,6 +104,7 @@ void test_waiting() {
 }
 
 int main() {
+	void test_char_pointer_delete();
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 
 //	test_address();
@@ -115,17 +117,16 @@ int main() {
 
 //	test_static_and_dynamic_binding();
 
-//	void test_char_pointer_delete();
-//	test_char_pointer_delete();
+	test_char_pointer_delete();
 
-	test_waiting();
+//	test_waiting();
 
 	return 0;
 }
 
 void test_char_pointer_delete() {
-	char* test_get_char_pointer(void);
-	char* name;
+	char_pointer test_get_char_pointer(void);
+	char_pointer name;
 	name = test_get_char_pointer();
 	cout << name << " at " << (int*) name << endl;
 	delete[] name;
@@ -137,11 +138,11 @@ void test_char_pointer_delete() {
 /**
  * 使用动态内存返回值，但要注意释放内存
  */
-char* test_get_char_pointer() {
+char_pointer test_get_char_pointer() {
 	char temp[80];
 	cout << "Enter last name:";
 	cin >> temp;
-	char* pn = new char[strlen(temp) + 1];
+	char_pointer pn = new char[strlen(temp) + 1];
 	strcpy(pn, temp);
 	return pn;
 }
