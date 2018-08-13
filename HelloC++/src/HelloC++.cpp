@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <time.h>
 using namespace std;
 
 void test_address() {
@@ -83,17 +84,42 @@ void test_static_and_dynamic_binding() {
 	cout << endl;
 	delete[] dynamicArray;
 }
+/**
+ * ÑÓ³Ù´¦Àí
+ */
+void test_waiting() {
+	cout << "Enter the delay time in seconds:";
+	int secs;
+	cin >> secs;
+	clock_t delay = secs * CLOCKS_PER_SEC;
+	cout << "starting\a" << endl;
+	clock_t start = clock();
+	while (clock() - start < delay) {
+		if ((clock() - start) != CLOCKS_PER_SEC)
+			continue;
+		cout << "waiting..." << endl;
+	}
+	cout << "done \a" << endl;
+}
 
 int main() {
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 
 //	test_address();
+
 //	test_pointer();
+
 //	test_use_new();
+
 //	test_array_new();
+
 //	test_static_and_dynamic_binding();
-	void test_char_pointer_delete();
-	test_char_pointer_delete();
+
+//	void test_char_pointer_delete();
+//	test_char_pointer_delete();
+
+	test_waiting();
+
 	return 0;
 }
 
