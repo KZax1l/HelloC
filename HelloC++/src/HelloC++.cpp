@@ -119,6 +119,32 @@ void test_cin_char_end_by_char() {
 	}
 	cout << endl << count << " characters read" << endl;
 }
+void test_cctype() {
+#include <cctype>
+	cout << "Enter text for analysis, and type @ to terminate input." << endl;
+	char ch;
+	int whitespace = 0; //记录输入的空格个数
+	int digits = 0; //记录输入的数字个数
+	int chars = 0; //记录输入的字符个数
+	int punct = 0; //记录输入的标点符号的个数
+	int others = 0;
+	while ((ch = cin.get()) != '@') {
+		if (isalpha(ch)) {
+			chars++;
+		} else if (isspace(ch)) {
+			whitespace++;
+		} else if (isdigit(ch)) {
+			digits++;
+		} else if (ispunct(ch)) {
+			punct++;
+		} else {
+			others++;
+		}
+	}
+	cout << chars << " letters, " << whitespace << " whitespace, " << digits
+			<< " digits, " << punct << " punctuations, " << others << " others."
+			<< endl;
+}
 
 int main() {
 	void test_char_pointer_delete();
@@ -138,7 +164,9 @@ int main() {
 
 //	test_waiting();
 
-	test_cin_char_end_by_char();
+//	test_cin_char_end_by_char();
+
+	test_cctype();
 
 	return 0;
 }
