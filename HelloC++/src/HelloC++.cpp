@@ -111,11 +111,11 @@ void test_cin_char_end_by_char() {
 	char ch;
 	int count = 0;
 	cout << "Enter characters; enter # to quit:" << endl;
-	cin >> ch;
+	cin.get(ch);
 	while (ch != '#') {
 		cout << ch;
 		++count;
-		cin >> ch;
+		cin.get(ch);
 	}
 	cout << endl << count << " characters read" << endl;
 }
