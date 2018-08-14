@@ -102,6 +102,23 @@ void test_waiting() {
 	}
 	cout << "done \a" << endl;
 }
+/**
+ * 输入字符串，并以特殊字符（哨兵字符）做停止输入标识
+ * 会发现，这种输入方式会忽略空格和回车字符，
+ * 而且即便输入了哨兵字符，也能继续输入，必须输入回车才行
+ */
+void test_cin_char_end_by_char() {
+	char ch;
+	int count = 0;
+	cout << "Enter characters; enter # to quit:" << endl;
+	cin >> ch;
+	while (ch != '#') {
+		cout << ch;
+		++count;
+		cin >> ch;
+	}
+	cout << endl << count << " characters read" << endl;
+}
 
 int main() {
 	void test_char_pointer_delete();
@@ -117,9 +134,11 @@ int main() {
 
 //	test_static_and_dynamic_binding();
 
-	test_char_pointer_delete();
+//	test_char_pointer_delete();
 
 //	test_waiting();
+
+	test_cin_char_end_by_char();
 
 	return 0;
 }
