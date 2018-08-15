@@ -145,6 +145,27 @@ void test_cctype() {
 			<< " digits, " << punct << " punctuations, " << others << " others."
 			<< endl;
 }
+int test_method_sum_arr(int arr[], int count) {
+	int total = 0;
+	std::cout << arr << " = arr, ";
+	std::cout << sizeof arr << " = sizeof arr" << std::endl;
+	for (int i = 0; i < count; i++) {
+		total += arr[i];
+	}
+	return total;
+}
+void test_method_sum_arr_sample() {
+	const int ArSize = 8;
+	int cookies[ArSize] = { 1, 2, 3, 4, 5, 6, 7, 8 };
+	std::cout << cookies << " = array address, ";
+	std::cout << sizeof cookies << " = sizeof cookies" << std::endl;
+	int sum = test_method_sum_arr(cookies, ArSize);
+	std::cout << "Total cookies eaten: " << sum << std::endl;
+	sum = test_method_sum_arr(cookies, 3);
+	std::cout << "First three eaters ate " << sum << " cookies." << std::endl;
+	sum = test_method_sum_arr(cookies + 4, 4);
+	std::cout << "Last four eaters ate " << sum << " cookies." << std::endl;
+}
 
 int main() {
 	void test_char_pointer_delete();
@@ -166,7 +187,9 @@ int main() {
 
 //	test_cin_char_end_by_char();
 
-	test_cctype();
+//	test_cctype();
+
+	test_method_sum_arr_sample();
 
 	return 0;
 }
