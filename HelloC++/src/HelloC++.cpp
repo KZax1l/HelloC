@@ -145,7 +145,7 @@ void test_cctype() {
 			<< " digits, " << punct << " punctuations, " << others << " others."
 			<< endl;
 }
-int test_method_sum_arr(int arr[], int count) {
+int test_method_sum_arr(const int arr[], int count) {
 	int total = 0;
 	std::cout << arr << " = arr, ";
 	std::cout << sizeof arr << " = sizeof arr" << std::endl;
