@@ -154,16 +154,27 @@ int test_method_sum_arr(const int arr[], int count) {
 	}
 	return total;
 }
+/**
+ * 使用数组区间
+ */
+int test_method_sum_arr(const int* start, const int* end) {
+	const int* pt;
+	int total = 0;
+	for (pt = start; pt != end; pt++) {
+		total += *pt;
+	}
+	return total;
+}
 void test_method_sum_arr_sample() {
 	const int ArSize = 8;
 	int cookies[ArSize] = { 1, 2, 3, 4, 5, 6, 7, 8 };
 	std::cout << cookies << " = array address, ";
 	std::cout << sizeof cookies << " = sizeof cookies" << std::endl;
-	int sum = test_method_sum_arr(cookies, ArSize);
+	int sum = test_method_sum_arr(cookies, cookies + ArSize);
 	std::cout << "Total cookies eaten: " << sum << std::endl;
-	sum = test_method_sum_arr(cookies, 3);
+	sum = test_method_sum_arr(cookies, cookies + 3);
 	std::cout << "First three eaters ate " << sum << " cookies." << std::endl;
-	sum = test_method_sum_arr(cookies + 4, 4);
+	sum = test_method_sum_arr(cookies + 4, cookies + 8);
 	std::cout << "Last four eaters ate " << sum << " cookies." << std::endl;
 }
 
