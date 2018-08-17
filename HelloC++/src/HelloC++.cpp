@@ -177,6 +177,28 @@ void test_method_sum_arr_sample() {
 	sum = test_method_sum_arr(cookies + 4, cookies + 8);
 	std::cout << "Last four eaters ate " << sum << " cookies." << std::endl;
 }
+struct sysop {
+	char name[26];
+	char quote[64];
+	int used;
+};
+const sysop & test_struct_ref(sysop & sysopref) {
+	cout << sysopref.name << " says:" << endl;
+	cout << sysopref.quote << endl;
+	sysopref.used++;
+	return sysopref;
+}
+void test_struct_ref_sample() {
+	sysop looper = { "Rick \"Fortran\" Looper", "I'm a goto kind of guy.", 0 };
+	test_struct_ref(looper);
+	cout << "Looper: " << looper.used << " use(s)" << endl;
+	sysop copycast;
+	copycast = test_struct_ref(looper);
+	cout << "Looper: " << looper.used << " use(s)" << endl;
+	cout << "Copycast: " << copycast.used << " use(s)" << endl;
+	cout << "test_struct_ref(looper): " << test_struct_ref(looper).used
+			<< " use(s)" << endl;
+}
 
 int main() {
 	void test_char_pointer_delete();
@@ -200,7 +222,9 @@ int main() {
 
 //	test_cctype();
 
-	test_method_sum_arr_sample();
+//	test_method_sum_arr_sample();
+
+	test_struct_ref_sample();
 
 	return 0;
 }
