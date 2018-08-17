@@ -182,6 +182,9 @@ struct sysop {
 	char quote[64];
 	int used;
 };
+/**
+ * 形参和返回值都是引用结构变量
+ */
 const sysop & test_struct_ref(sysop & sysopref) {
 	cout << sysopref.name << " says:" << endl;
 	cout << sysopref.quote << endl;
