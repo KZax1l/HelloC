@@ -217,7 +217,7 @@ int main() {
 
 //	test_static_and_dynamic_binding();
 
-//	test_char_pointer_delete();
+	test_char_pointer_delete();
 
 //	test_waiting();
 
@@ -227,7 +227,7 @@ int main() {
 
 //	test_method_sum_arr_sample();
 
-	test_struct_ref_sample();
+//	test_struct_ref_sample();
 
 	return 0;
 }
@@ -252,5 +252,6 @@ char_pointer test_get_char_pointer() {
 	cin >> temp;
 	char_pointer pn = new char[strlen(temp) + 1];
 	strcpy(pn, temp);
+	cout << "pn address:" << (int*) pn << endl;
 	return pn;
 }
