@@ -203,6 +203,50 @@ void test_struct_ref_sample() {
 			<< " use(s)" << endl;
 }
 
+struct job {
+	char name[40];
+	double salary;
+	int floor;
+};
+template<typename Any> void test_template_swap(Any & a, Any & b) {
+	Any temp;
+	temp = a;
+	a = b;
+	b = temp;
+}
+template<> void test_template_swap<job>(job &j1, job &j2) {
+	double t1;
+	int t2;
+	t1 = j1.salary;
+	j1.salary = j2.salary;
+	j2.salary = t1;
+	t2 = j1.floor;
+	j1.floor = j2.floor;
+	j2.floor = t2;
+}
+void test_template_show(job &j) {
+	cout << j.name << ":$" << j.salary << " on floor " << j.floor << endl;
+}
+void test_template_swap_sample() {
+	cout.precision(2);
+	cout.setf(ios::fixed, ios::floatfield);
+	int i = 10, j = 20;
+	cout << "i,j = " << i << ", " << j << "." << endl;
+	cout << "Using compiler-generated int swapper:" << endl;
+	test_template_swap(i, j);
+	cout << "Now i,j = " << i << "," << j << "." << endl;
+
+	job sue = { "Susan Yaffee", 73000.60, 7 };
+	job sidney = { "Sideny Taffee", 78060.72, 9 };
+	cout << "Before job swapping: " << endl;
+	test_template_show(sue);
+	test_template_show(sidney);
+	test_template_swap(sue, sidney);
+	cout << "After job swapping: " << endl;
+	test_template_show(sue);
+	test_template_show(sidney);
+}
+
 int main() {
 	void test_char_pointer_delete();
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
@@ -217,7 +261,7 @@ int main() {
 
 //	test_static_and_dynamic_binding();
 
-	test_char_pointer_delete();
+//	test_char_pointer_delete();
 
 //	test_waiting();
 
@@ -228,6 +272,8 @@ int main() {
 //	test_method_sum_arr_sample();
 
 //	test_struct_ref_sample();
+
+	test_template_swap_sample();
 
 	return 0;
 }
