@@ -10,6 +10,7 @@
 #include <cstring>
 #include <time.h>
 #include"Template.h"
+#include"Newplace.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -230,8 +231,11 @@ int main() {
 
 //	test_struct_ref_sample();
 
-	Template t;
-	t.test_template_swap_sample();
+//	Template t;
+//	t.test_template_swap_sample();
+
+	Newplace n;
+	n.test_newplace();
 
 	return 0;
 }
