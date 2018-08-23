@@ -11,6 +11,7 @@
 #include <time.h>
 #include"Template.h"
 #include"Newplace.h"
+#include"Namespace.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -234,8 +235,11 @@ int main() {
 //	Template t;
 //	t.test_template_swap_sample();
 
-	Newplace n;
-	n.test_newplace();
+//	Newplace n;
+//	n.test_newplace();
+
+	Namespace n;
+	n.test_namespace();
 
 	return 0;
 }
