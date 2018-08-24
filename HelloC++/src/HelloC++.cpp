@@ -12,6 +12,7 @@
 #include"Template.h"
 #include"Newplace.h"
 #include"Namespace.h"
+#include"Stock.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -238,8 +239,11 @@ int main() {
 //	Newplace n;
 //	n.test_newplace();
 
-	Namespace n;
-	n.test_namespace();
+//	Namespace n;
+//	n.test_namespace();
+
+	Stock s;
+	s.test_stock();
 
 	return 0;
 }

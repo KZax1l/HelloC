@@ -1,0 +1,39 @@
+/*
+ * Stock.h
+ *
+ *  Created on: 2018年8月24日
+ *      Author: Administrator
+ */
+
+#ifndef STOCK_H_
+#define STOCK_H_
+
+class Stock {
+private:
+	char company[30];
+	int shares;
+	double share_val;
+	double total_val;
+	//内联函数
+//	void set_tot() {
+//		total_val = shares * share_val;
+//	}
+	void set_tot();
+public:
+	//构造函数
+	Stock();
+	Stock(const char *co, int n = 0, double pr = 0.0);
+	//析构函数
+	virtual ~Stock();
+	void buy(int num, double price);
+	void sell(int num, double price);
+	void update(double price);
+	void show();
+	void test_stock();
+};
+//内联函数
+inline void Stock::set_tot() {
+	total_val = shares * share_val;
+}
+
+#endif /* STOCK_H_ */
