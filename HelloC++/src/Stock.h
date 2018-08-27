@@ -21,6 +21,7 @@ private:
 //		total_val = shares * share_val;
 //	}
 	void set_tot();
+	static const int STKS = 4;
 public:
 	//¹¹Ôìº¯Êý
 	Stock();

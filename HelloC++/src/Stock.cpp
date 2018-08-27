@@ -112,7 +112,6 @@ void Stock::test_stock_top_val() const {
 	using std::ios_base;
 	using std::endl;
 
-	const int STKS = 4;
 	Stock stocks[STKS] = { Stock(
 			"Dunkelmeister, Dostoyevsky, and Delderfield Construction", 12,
 			20.0), Stock("Boffo Objects", 200, 2.0), Stock(
