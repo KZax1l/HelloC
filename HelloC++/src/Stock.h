@@ -28,8 +28,9 @@ public:
 	void buy(int num, double price);
 	void sell(int num, double price);
 	void update(double price);
-	void show();
-	void test_stock();
+	//使用const保证函数不会修改对象
+	void show() const;
+	void test_stock() const;
 };
 //内联函数
 inline void Stock::set_tot() {

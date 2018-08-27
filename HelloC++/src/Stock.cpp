@@ -39,7 +39,7 @@ Stock::~Stock() {
 	std::cout << "Bye, " << company << "!" << std::endl;
 }
 
-void Stock::test_stock() {
+void Stock::test_stock() const {
 	using std::cout;
 	using std::ios_base;
 	using std::endl;
@@ -98,7 +98,7 @@ void Stock::update(double price) {
 	set_tot();
 }
 
-void Stock::show() {
+void Stock::show() const {
 	using std::cout;
 	using std::endl;
 	cout << "Company: " << company << " Shares: " << shares << endl
