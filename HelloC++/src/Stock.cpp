@@ -6,13 +6,10 @@
  */
 
 #include "Stock.h"
-#include<iostream>
-#include<string.h>
 
 Stock::Stock() {
 	// TODO Auto-generated constructor stub
 	std::cout << "Default constructor called" << std::endl;
-	strcpy(company, "no name");
 	shares = 0;
 	share_val = 0.0;
 	total_val = 0.0;
@@ -22,8 +19,7 @@ Stock::Stock(const char *co, int n, double pr) {
 	using std::endl;
 	using std::cerr;
 	std::cout << "Constructor using " << co << " called" << std::endl;
-	strncpy(company, co, 29);
-	company[29] = '\0';
+	company = co;
 	if (n < 0) {
 		cerr << "Number of shares can't be negative; " << company
 				<< " shares set to 0." << endl;
@@ -117,8 +113,10 @@ void Stock::test_stock_top_val() const {
 	using std::endl;
 
 	const int STKS = 4;
-	Stock stocks[STKS] = { Stock("NanoSmart", 12, 20.0), Stock("Boffo Objects",
-			200, 2.0), Stock("Monolithic Obelisks", 130, 3.25) };
+	Stock stocks[STKS] = { Stock(
+			"Dunkelmeister, Dostoyevsky, and Delderfield Construction", 12,
+			20.0), Stock("Boffo Objects", 200, 2.0), Stock(
+			"Monolithic Obelisks", 130, 3.25) };
 	cout.precision(2);
 	cout.setf(ios_base::fixed, ios_base::floatfield);
 	cout.setf(ios_base::showpoint);
