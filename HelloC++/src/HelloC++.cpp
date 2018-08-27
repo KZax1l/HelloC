@@ -243,7 +243,7 @@ int main() {
 //	n.test_namespace();
 
 	Stock s;
-	s.test_stock();
+	s.test_stock_top_val();
 
 	return 0;
 }

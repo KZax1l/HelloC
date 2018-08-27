@@ -39,7 +39,7 @@ Stock::~Stock() {
 	std::cout << "Bye, " << company << "!" << std::endl;
 }
 
-void Stock::test_stock() const {
+void Stock::test_stock_show() const {
 	using std::cout;
 	using std::ios_base;
 	using std::endl;
@@ -109,4 +109,29 @@ void Stock::show() const {
 const Stock & Stock::top_val(const Stock & s) const {
 	//this是该对象的地址，要得到对象当然要使用*
 	return s.total_val > total_val ? s : *this;
+}
+
+void Stock::test_stock_top_val() const {
+	using std::cout;
+	using std::ios_base;
+	using std::endl;
+
+	const int STKS = 4;
+	Stock stocks[STKS] = { Stock("NanoSmart", 12, 20.0), Stock("Boffo Objects",
+			200, 2.0), Stock("Monolithic Obelisks", 130, 3.25) };
+	cout.precision(2);
+	cout.setf(ios_base::fixed, ios_base::floatfield);
+	cout.setf(ios_base::showpoint);
+
+	cout << "Stock holdings:" << endl;
+	int st;
+	for (st = 0; st < STKS; st++) {
+		stocks[st].show();
+	}
+	Stock top = stocks[0];
+	for (st = 1; st < STKS; st++) {
+		top = top.top_val(stocks[st]);
+	}
+	cout << endl << "Most valuable holding:" << endl;
+	top.show();
 }
