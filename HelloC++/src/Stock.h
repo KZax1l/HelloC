@@ -31,6 +31,10 @@ public:
 	//使用const保证函数不会修改对象
 	void show() const;
 	void test_stock() const;
+	double total() const {
+		return total_val;
+	}
+	const Stock & top_val(const Stock & s) const;
 };
 //内联函数
 inline void Stock::set_tot() {

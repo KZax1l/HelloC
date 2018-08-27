@@ -105,3 +105,8 @@ void Stock::show() const {
 			<< " Share Price: $" << share_val << " Total Worth: $" << total_val
 			<< endl;
 }
+
+const Stock & Stock::top_val(const Stock & s) const {
+	//this是该对象的地址，要得到对象当然要使用*
+	return s.total_val > total_val ? s : *this;
+}
