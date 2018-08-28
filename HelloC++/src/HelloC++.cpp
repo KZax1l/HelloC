@@ -13,6 +13,7 @@
 #include"Newplace.h"
 #include"Namespace.h"
 #include"Stock.h"
+#include"OperatorsOverloading.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -242,8 +243,11 @@ int main() {
 //	Namespace n;
 //	n.test_namespace();
 
-	Stock s;
-	s.test_stock_top_val();
+//	Stock s;
+//	s.test_stock_top_val();
+
+	OperatorsOverloading o;
+	o.test_operators_overloading();
 
 	return 0;
 }
