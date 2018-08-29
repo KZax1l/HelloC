@@ -6,7 +6,6 @@
  */
 
 #include "OperatorsOverloading.h"
-#include "iostream"
 
 OperatorsOverloading::OperatorsOverloading() {
 	// TODO Auto-generated constructor stub
@@ -58,6 +57,11 @@ OperatorsOverloading operator*(double m, const OperatorsOverloading & t) {
 	return temp;
 }
 
+ostream & operator<<(ostream & os, const OperatorsOverloading & t) {
+	os << t.hours << " hours, " << t.minutes << " minutes";
+	return os;
+}
+
 void OperatorsOverloading::show() const {
 	std::cout << hours << " hours, " << minutes << " minutes";
 }
@@ -105,6 +109,9 @@ void OperatorsOverloading::test_operators_overloading() {
 	cout << "2.75 * morefixing = ";
 	total.show();
 	cout << endl;
+
+	OperatorsOverloading trip(1, 10);
+	cout << "Trip time: " << trip << " (Tuesday) " << endl;
 }
 
 OperatorsOverloading::~OperatorsOverloading() {

@@ -7,6 +7,8 @@
 
 #ifndef OPERATORSOVERLOADING_H_
 #define OPERATORSOVERLOADING_H_
+#include "iostream"
+using std::ostream;
 
 class OperatorsOverloading {
 private:
@@ -25,6 +27,11 @@ public:
 	 */
 	friend OperatorsOverloading operator*(double m,
 			const OperatorsOverloading & t);
+	/**
+	 * 注意这里的ostream对象的传参和返回值都是引用类型，如果返回值不是引用类型，会报
+	 * ' is protected within this context'的错误
+	 */
+	friend ostream & operator<<(ostream & os, const OperatorsOverloading & t);
 	void show() const;
 	void test_operators_overloading();
 };
