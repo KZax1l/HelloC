@@ -100,6 +100,11 @@ void OperatorsOverloading::test_operators_overloading() {
 	cout << "operator*(2.75, morefixing) = ";
 	total.show();
 	cout << endl;
+
+	total = 2.75 * morefixing;
+	cout << "2.75 * morefixing = ";
+	total.show();
+	cout << endl;
 }
 
 OperatorsOverloading::~OperatorsOverloading() {
