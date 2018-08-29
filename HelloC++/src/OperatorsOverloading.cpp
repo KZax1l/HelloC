@@ -47,6 +47,17 @@ OperatorsOverloading OperatorsOverloading::operator +(
 	return temp;
 }
 
+/**
+ * 非成员函数
+ */
+OperatorsOverloading operator*(double m, const OperatorsOverloading & t) {
+	OperatorsOverloading temp;
+	long total_min = t.hours * 60 + t.minutes;
+	temp.hours = total_min / 60;
+	temp.minutes = total_min % 60;
+	return temp;
+}
+
 void OperatorsOverloading::show() const {
 	std::cout << hours << " hours, " << minutes << " minutes";
 }
@@ -82,6 +93,11 @@ void OperatorsOverloading::test_operators_overloading() {
 	cout << endl;
 	total = morefixing.operator +(total);
 	cout << "morefixing.operator+(total) = ";
+	total.show();
+	cout << endl;
+
+	total = operator *(2.75, morefixing);
+	cout << "operator*(2.75, morefixing) = ";
 	total.show();
 	cout << endl;
 }

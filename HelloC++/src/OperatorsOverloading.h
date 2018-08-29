@@ -20,6 +20,11 @@ public:
 	void addHr(int h);
 	void reset(int h = 0, int m = 0);
 	OperatorsOverloading operator+(const OperatorsOverloading & t) const;
+	/**
+	 * 友元函数不能加const?
+	 */
+	friend OperatorsOverloading operator*(double m,
+			const OperatorsOverloading & t);
 	void show() const;
 	void test_operators_overloading();
 };
