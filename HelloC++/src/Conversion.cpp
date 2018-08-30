@@ -36,6 +36,7 @@ Conversion::Conversion(int stn, double lbs) {
 void Conversion::test_conversion() const {
 	void display(const Conversion &, int);
 
+	//对应于只有一个构造函数的实例化，但这样的赋值方式也只适用于一个传参的构造函数
 	Conversion pavarotti = 260;
 	Conversion wolfe(285.7);
 	Conversion taft(21.8);
@@ -44,7 +45,7 @@ void Conversion::test_conversion() const {
 	pavarotti.show_stn();
 	cout << "The detective weighed ";
 	wolfe.show_stn();
-	pavarotti = 265.8; //对应于只有一个构造函数的实例化，但这样的赋值方式也只适用于一个传参的构造函数
+	pavarotti = 265.8; //由于使用了explicit关键字关闭了double传参的自动转换函数，故这相当于Conversion(265)
 	taft = 325;
 	cout << "After dinner, the tenor weighed ";
 	pavarotti.show_stn();
@@ -54,6 +55,13 @@ void Conversion::test_conversion() const {
 	cout << "The wrestler weighed even more." << endl;
 	display(422, 2);
 	cout << "No stone left unearned" << endl;
+
+	Conversion poppins(9, 2.8);
+	double p_wt = poppins;
+	cout << "Convert to double => ";
+	cout << "Poppins: " << p_wt << " pounds." << endl;
+	cout << "Convert to int => ";
+	cout << "Poppins: " << int(poppins) << " pounds." << endl;
 }
 
 void display(const Conversion & c, int n) {
@@ -69,6 +77,14 @@ void Conversion::show_stn() const {
 
 void Conversion::show_lbs() const {
 	cout << pounds << " pounds" << endl;
+}
+
+Conversion::operator int() const {
+	return int(pounds + 0.5);
+}
+
+Conversion::operator double() const {
+	return pounds;
 }
 
 Conversion::~Conversion() {

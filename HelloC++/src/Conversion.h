@@ -25,6 +25,10 @@ public:
 	void test_conversion() const;
 	void show_lbs() const;
 	void show_stn() const;
+
+	//×ª»»º¯Êý
+	operator int() const;
+	operator double() const;
 };
 
 #endif /* CONVERSION_H_ */
