@@ -18,7 +18,8 @@ private:
 	double pounds;
 public:
 	Conversion();
-	Conversion(double lbs);
+	Conversion(int lbs);
+	explicit Conversion(double lbs);
 	Conversion(int stn, double lbs);
 	virtual ~Conversion();
 	void test_conversion() const;

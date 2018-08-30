@@ -15,6 +15,12 @@ Conversion::Conversion() {
 	stone = pounds = pds_left = 0;
 }
 
+Conversion::Conversion(int lbs) {
+	stone = lbs / Lbs_per_stn;
+	pds_left = lbs % Lbs_per_stn + lbs - int(lbs);
+	pounds = lbs;
+}
+
 Conversion::Conversion(double lbs) {
 	stone = int(lbs) / Lbs_per_stn;
 	pds_left = int(lbs) % Lbs_per_stn + lbs - int(lbs);
