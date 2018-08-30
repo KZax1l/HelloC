@@ -14,6 +14,7 @@
 #include"Namespace.h"
 #include"Stock.h"
 #include"OperatorsOverloading.h"
+#include"Conversion.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -246,8 +247,11 @@ int main() {
 //	Stock s;
 //	s.test_stock_top_val();
 
-	OperatorsOverloading o;
-	o.test_operators_overloading();
+//	OperatorsOverloading o;
+//	o.test_operators_overloading();
+
+	Conversion c;
+	c.test_conversion();
 
 	return 0;
 }
