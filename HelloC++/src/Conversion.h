@@ -26,7 +26,12 @@ public:
 	void show_lbs() const;
 	void show_stn() const;
 
-	//转换函数
+	/**
+	 * 转换函数
+	 * 1.转换函数必须是类方法
+	 * 2.转换函数不能指定返回类型
+	 * 3.转换函数不能有参数
+	 */
 	operator int() const;
 	operator double() const;
 };

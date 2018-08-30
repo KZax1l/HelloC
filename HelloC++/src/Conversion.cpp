@@ -61,6 +61,10 @@ void Conversion::test_conversion() const {
 	cout << "Convert to double => ";
 	cout << "Poppins: " << p_wt << " pounds." << endl;
 	cout << "Convert to int => ";
+	/*
+	 * 注意这里的强转，如果不这样就会报'ambiguous overload'的二义性错误，
+	 * 因为编译器不知道是用定义的int还是double的转换
+	 */
 	cout << "Poppins: " << int(poppins) << " pounds." << endl;
 }
 
