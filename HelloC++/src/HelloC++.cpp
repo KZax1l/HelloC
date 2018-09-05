@@ -15,6 +15,7 @@
 #include"Stock.h"
 #include"OperatorsOverloading.h"
 #include"Conversion.h"
+#include"./practice/CustomString.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -250,8 +251,11 @@ int main() {
 //	OperatorsOverloading o;
 //	o.test_operators_overloading();
 
-	Conversion c;
-	c.test_conversion();
+//	Conversion c;
+//	c.test_conversion();
+
+	CustomString cs;
+	cs.test_custom_string();
 
 	return 0;
 }
