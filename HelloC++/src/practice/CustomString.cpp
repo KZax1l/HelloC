@@ -30,7 +30,8 @@ CustomString::CustomString(const char * s) {
 
 CustomString::CustomString(const CustomString & cs) {
 	len = cs.len;
-	str = cs.str; //由于str为指针，这样赋值的话，相当于指向了同一个地址，当调用delete释放后，这会出现问题
+	str = new char[len + 1];
+	std::strcpy(str, cs.str);
 	num_strings++;
 	cout << num_strings << ": \"" << str << "\" copy object created\n";
 }
