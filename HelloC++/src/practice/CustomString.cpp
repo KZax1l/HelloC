@@ -56,6 +56,11 @@ void CustomString::test_custom_string() {
 	callme2(headline2);
 	cout << "headline2: " << headline2 << endl;
 	cout << "Initialize one object to another: \n";
+	/*
+	 * 这种赋值方式调用的是复制构造函数，复制构造函数的原型通常如下：
+	 * Class_name(const Class_name &);
+	 * 即这里的赋值等价于"CustomString sailor = CustomString(sports)"
+	 */
 	CustomString sailor = sports;
 	cout << "sailor: " << sailor << endl;
 	cout << "Assign one object to another: \n";
@@ -70,6 +75,9 @@ void callme1(CustomString & rsb) {
 	cout << "    \"" << rsb << "\"\n";
 }
 
+/*
+ * 这里传参不是
+ */
 void callme2(CustomString sb) {
 	cout << "String passed by value: \n";
 	cout << "    \"" << sb << "\"\n";
