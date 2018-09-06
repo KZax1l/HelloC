@@ -21,6 +21,7 @@ public:
 	virtual ~CustomString();
 	friend std::ostream & operator<<(std::ostream &os, const CustomString &st);
 	void test_custom_string();
+	CustomString & operator=(const CustomString & cs);
 };
 
 #endif /* PRACTICE_CUSTOMSTRING_H_ */

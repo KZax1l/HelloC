@@ -49,6 +49,20 @@ std::ostream & operator<<(std::ostream & os, const CustomString & st) {
 	return os;
 }
 
+CustomString & CustomString::operator =(const CustomString & cs) {
+	using std::endl;
+	if (this == &cs) {
+		cout << "same object, return *this" << endl;
+		return *this;
+	}
+	cout << "copy string" << endl;
+	delete[] str;
+	len = cs.len;
+	str = new char(len + 1);
+	std::strcpy(str, cs.str);
+	return *this;
+}
+
 void CustomString::test_custom_string() {
 	using std::endl;
 	void callme1(CustomString &);
