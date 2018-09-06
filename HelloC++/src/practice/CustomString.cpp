@@ -68,11 +68,18 @@ void CustomString::test_custom_string() {
 	 * 这种赋值方式调用的是复制构造函数，复制构造函数的原型通常如下：
 	 * Class_name(const Class_name &);
 	 * 即这里的赋值等价于"CustomString sailor = CustomString(sports)"
+	 * 初始化对象时，并不一定会使用类的赋值操作符
 	 */
 	CustomString sailor = sports;
 	cout << "sailor: " << sailor << endl;
 	cout << "Assign one object to another: \n";
 	CustomString knot;
+	/**
+	 * 这里会调用类的赋值操作符，类的赋值操作符重载原型如下：
+	 * Class_name & Class_name::operator=(const Class_name &);
+	 * 将已有的对象赋给另一对象时，将使用类重载的赋值操作符
+	 * 这里由于knot已经创建了对象，而再进行赋值，就会调用类的赋值操作符
+	 */
 	knot = headline1;
 	cout << "knot: " << knot << endl;
 	cout << "End of main()\n";
