@@ -28,6 +28,13 @@ CustomString::CustomString(const char * s) {
 	cout << num_strings << ": \"" << str << "\" default object created\n";
 }
 
+CustomString::CustomString(const CustomString & cs) {
+	len = cs.len;
+	str = cs.str;
+	num_strings++;
+	cout << num_strings << ": \"" << str << "\" copy object created\n";
+}
+
 CustomString::~CustomString() {
 	// TODO Auto-generated destructor stub
 	cout << "\"" << str << "\" object deleted, ";
