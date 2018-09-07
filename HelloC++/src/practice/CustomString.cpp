@@ -11,13 +11,16 @@ using std::cout;
 
 int CustomString::num_strings = 0;
 
+int CustomString::howMany() {
+	return num_strings;
+}
+
 CustomString::CustomString() {
 	// TODO Auto-generated constructor stub
 	len = 4;
-	str = new char[4];
-	std::strcpy(str, "C++");
+	str = new char[1]; //之所以不使用'new char'是为了保持与析构函数兼容
+	str[0] = '\0';
 	num_strings++;
-	cout << num_strings << ": \"" << str << "\" default object created\n";
 }
 
 CustomString::CustomString(const char * s) {
@@ -25,7 +28,6 @@ CustomString::CustomString(const char * s) {
 	str = new char[len + 1];
 	std::strcpy(str, s);
 	num_strings++;
-	cout << num_strings << ": \"" << str << "\" default object created\n";
 }
 
 CustomString::CustomString(const CustomString & cs) {
@@ -33,14 +35,11 @@ CustomString::CustomString(const CustomString & cs) {
 	str = new char[len + 1];
 	std::strcpy(str, cs.str);
 	num_strings++;
-	cout << num_strings << ": \"" << str << "\" copy object created\n";
 }
 
 CustomString::~CustomString() {
 	// TODO Auto-generated destructor stub
-	cout << "\"" << str << "\" object deleted, ";
 	--num_strings;
-	cout << num_strings << " left\n";
 	delete[] str;
 }
 
@@ -61,6 +60,44 @@ CustomString & CustomString::operator =(const CustomString & cs) {
 	str = new char(len + 1);
 	std::strcpy(str, cs.str);
 	return *this;
+}
+
+CustomString & CustomString::operator =(const char * s) {
+	delete[] str;
+	len = std::strlen(s);
+	str = new char[len + 1];
+	std::strcpy(str, s);
+	return *this;
+}
+
+char & CustomString::operator [](int i) {
+	return str[i];
+}
+
+const char & CustomString::operator [](int i) const {
+	return str[i];
+}
+
+bool operator<(const CustomString & cs, const CustomString & s) {
+	return std::strcmp(cs.str, s.str) < 0;
+}
+
+bool operator>(const CustomString & cs, const CustomString & s) {
+	return s.str < cs.str;
+}
+
+bool operator==(const CustomString & cs, const CustomString & s) {
+	return std::strcmp(cs.str, s.str) == 0;
+}
+
+istream & operator>>(istream & is, CustomString & cs) {
+	char temp[CustomString::CINLIM];
+	is.get(temp, CustomString::CINLIM);
+	if (is)
+		cs = temp;
+	while (is && is.get() != '\n')
+		continue;
+	return is;
 }
 
 void CustomString::test_custom_string() {
