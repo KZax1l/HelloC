@@ -18,8 +18,12 @@ int CustomString::howMany() {
 CustomString::CustomString() {
 	// TODO Auto-generated constructor stub
 	len = 4;
-	str = new char[1]; //之所以不使用'new char'是为了保持与析构函数兼容
-	str[0] = '\0';
+	/**
+	 * 空指针可以用0或NULL
+	 * 比起使用'new char[1]'来说更简便，而且，
+	 * delete(无论是带中括号还是不带中括号)可以用于空指针
+	 */
+	str = 0;
 	num_strings++;
 }
 
