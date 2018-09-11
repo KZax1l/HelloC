@@ -23,6 +23,9 @@ public:
 	int p_time() const {
 		return process_time;
 	}
+	bool operator==(int value) {
+		return arrive == value && process_time == value;
+	}
 };
 
 typedef Customer Item;

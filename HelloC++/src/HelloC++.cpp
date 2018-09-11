@@ -16,6 +16,7 @@
 #include"OperatorsOverloading.h"
 #include"Conversion.h"
 #include"./practice/CustomString.h"
+#include"./practice/Queue.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -254,8 +255,11 @@ int main() {
 //	Conversion c;
 //	c.test_conversion();
 
-	CustomString cs;
-	cs.test_custom_string();
+//	CustomString cs;
+//	cs.test_custom_string();
+
+	Queue q;
+	q.test_queue();
 
 	return 0;
 }
