@@ -17,6 +17,7 @@
 #include"Conversion.h"
 #include"./practice/CustomString.h"
 #include"./practice/Queue.h"
+#include"./practice/BaseDMA.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -212,7 +213,7 @@ void test_struct_ref_sample() {
 }
 
 int main() {
-	void test_char_pointer_delete();
+//	void test_char_pointer_delete();
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 
 //	test_address();
@@ -258,8 +259,11 @@ int main() {
 //	CustomString cs;
 //	cs.test_custom_string();
 
-	Queue q;
-	q.test_queue();
+//	Queue q;
+//	q.test_queue();
+
+	BaseDMA b;
+	b.test_Base_DMA();
 
 	return 0;
 }

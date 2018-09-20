@@ -58,6 +58,10 @@ void Brass::ViewAcct() const {
 	cout.setf(initialState);
 }
 
+Brass::~Brass() {
+
+}
+
 BrassPlus::BrassPlus(const char *s, long an, double bal, double ml, double r) :
 		AcctABC(s, an, bal) {
 	maxLoan = ml;
