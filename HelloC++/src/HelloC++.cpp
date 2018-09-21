@@ -18,6 +18,7 @@
 #include"./practice/CustomString.h"
 #include"./practice/Queue.h"
 #include"./practice/BaseDMA.h"
+#include"./practice/MIworker.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -262,8 +263,11 @@ int main() {
 //	Queue q;
 //	q.test_queue();
 
-	BaseDMA b;
-	b.test_Base_DMA();
+//	BaseDMA b;
+//	b.test_Base_DMA();
+
+	Waiter wk;
+	wk.test_mi_worker();
 
 	return 0;
 }
