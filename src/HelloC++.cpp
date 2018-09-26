@@ -19,6 +19,7 @@
 #include"./practice/Queue.h"
 #include"./practice/BaseDMA.h"
 #include"./practice/MIworker.h"
+#include"./practice/ClassTemplatePractice.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -266,8 +267,11 @@ int main() {
 //	BaseDMA b;
 //	b.test_Base_DMA();
 
-	Waiter wk;
-	wk.test_mi_worker();
+//	Waiter wk;
+//	wk.test_mi_worker();
+
+	ClassTemplatePractice<int> ctp;
+	ctp.test_class_template_practice();
 
 	return 0;
 }
