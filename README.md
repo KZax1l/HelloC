@@ -8,6 +8,9 @@
 
 ## 关键字
 
+- **define**
+- **typedef**
+- **typename**
 - **explicit**
 - **operator**
 
