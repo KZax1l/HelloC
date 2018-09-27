@@ -13,7 +13,7 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-template<class Type>
+template<class Type, int LENGTH>
 class ClassTemplatePractice {
 private:
 	enum {
@@ -23,7 +23,7 @@ private:
 	Type * items;
 	int top;
 public:
-	explicit ClassTemplatePractice(int ss = SIZE);
+	explicit ClassTemplatePractice(int ss = LENGTH);
 	ClassTemplatePractice(const ClassTemplatePractice & st);
 	bool isEmpty() {
 		return top == 0;
@@ -41,14 +41,14 @@ public:
 	}
 };
 
-template<class Type>
-ClassTemplatePractice<Type>::ClassTemplatePractice(int ss) :
+template<class Type, int LENGTH>
+ClassTemplatePractice<Type, LENGTH>::ClassTemplatePractice(int ss) :
 		stackSize(ss), top(0) {
 	items = new Type[stackSize];
 }
 
-template<class Type>
-ClassTemplatePractice<Type>::ClassTemplatePractice(
+template<class Type, int LENGTH>
+ClassTemplatePractice<Type, LENGTH>::ClassTemplatePractice(
 		const ClassTemplatePractice & st) {
 	stackSize = st.stackSize;
 	top = st.top;
@@ -57,7 +57,8 @@ ClassTemplatePractice<Type>::ClassTemplatePractice(
 		items[i] = st.items[i];
 }
 
-template<class T> bool ClassTemplatePractice<T>::push(const T & item) {
+template<class T, int L> bool ClassTemplatePractice<T, L>::push(
+		const T & item) {
 	if (top < stackSize) {
 		items[top++] = item;
 		return true;
@@ -66,7 +67,7 @@ template<class T> bool ClassTemplatePractice<T>::push(const T & item) {
 	}
 }
 
-template<class T> bool ClassTemplatePractice<T>::pop(T & item) {
+template<class T, int L> bool ClassTemplatePractice<T, L>::pop(T & item) {
 	if (top > 0) {
 		item = items[--top];
 		return true;
@@ -75,8 +76,8 @@ template<class T> bool ClassTemplatePractice<T>::pop(T & item) {
 	}
 }
 
-template<class T> ClassTemplatePractice<T> & ClassTemplatePractice<T>::operator =(
-		const ClassTemplatePractice<T> &st) {
+template<class T, int L> ClassTemplatePractice<T, L> & ClassTemplatePractice<T,
+		L>::operator =(const ClassTemplatePractice<T, L> &st) {
 	if (this == &st)
 		return *this;
 	delete[] items;
@@ -88,9 +89,9 @@ template<class T> ClassTemplatePractice<T> & ClassTemplatePractice<T>::operator 
 	return *this;
 }
 
-template<typename T>
-void ClassTemplatePractice<T>::test_class_template_practice() const {
-	ClassTemplatePractice<std::string> st;
+template<typename T, int L>
+void ClassTemplatePractice<T, L>::test_class_template_practice() const {
+	ClassTemplatePractice<std::string, 5> st;
 	char ch;
 	std::string po;
 	cout << "Please enter A to add a purchase order, " << endl
@@ -128,12 +129,12 @@ void ClassTemplatePractice<T>::test_class_template_practice() const {
 	cout << "Bye" << endl;
 }
 
-template<typename T> void ClassTemplatePractice<T>::test_class_template_by_pointer() const {
+template<typename T, int L> void ClassTemplatePractice<T, L>::test_class_template_by_pointer() const {
 	srand(time(0));
 	cout << "Please enter stack size: ";
 	int size;
 	cin >> size;
-	ClassTemplatePractice<const char *> st(size);
+	ClassTemplatePractice<const char *, 5> st(size);
 	const char* in[10] = { " 1: Hank Gilgamesh", " 2: Kiki Ishtar",
 			" 3: Betty Rocker", " 4: Ian Flagranti", " 5: Wolfgang Kibble",
 			" 6: Portia Koop", " 7: Joy Almondo", " 8: Xaverie Paprika",

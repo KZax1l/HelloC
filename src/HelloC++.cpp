@@ -270,7 +270,7 @@ int main() {
 //	Waiter wk;
 //	wk.test_mi_worker();
 
-	ClassTemplatePractice<int> ctp;
+	ClassTemplatePractice<int, 3> ctp;
 	ctp.test_class_template_by_pointer();
 
 	return 0;
