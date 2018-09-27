@@ -13,7 +13,7 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-template<class Type, int LENGTH>
+template<class Type = int, int LENGTH = 5>
 class ClassTemplatePractice {
 private:
 	enum {
