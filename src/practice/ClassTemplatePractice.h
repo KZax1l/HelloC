@@ -8,6 +8,7 @@
 #ifndef PRACTICE_CLASSTEMPLATEPRACTICE_H_
 #define PRACTICE_CLASSTEMPLATEPRACTICE_H_
 #include<iostream>
+#include <stdlib.h>
 using std::cin;
 using std::cout;
 using std::endl;
@@ -16,36 +17,48 @@ template<class Type>
 class ClassTemplatePractice {
 private:
 	enum {
-		MAX = 10
+		SIZE = 10
 	};
-	Type items[MAX];
+	int stackSize;
+	Type * items;
 	int top;
 public:
-	ClassTemplatePractice();
-	bool isEmpty() const;
-	bool isFull() const;
+	explicit ClassTemplatePractice(int ss = SIZE);
+	ClassTemplatePractice(const ClassTemplatePractice & st);
+	bool isEmpty() {
+		return top == 0;
+	}
+	bool isFull() {
+		return top == stackSize;
+	}
 	bool push(const Type & item);
 	bool pop(Type & item);
+	ClassTemplatePractice & operator=(const ClassTemplatePractice & st);
 	void test_class_template_practice() const;
-	virtual ~ClassTemplatePractice();
+	void test_class_template_by_pointer() const;
+	virtual ~ClassTemplatePractice() {
+		delete[] items;
+	}
 };
 
 template<class Type>
-ClassTemplatePractice<Type>::ClassTemplatePractice() {
-	top = 0;
+ClassTemplatePractice<Type>::ClassTemplatePractice(int ss) :
+		stackSize(ss), top(0) {
+	items = new Type[stackSize];
 }
 
 template<class Type>
-bool ClassTemplatePractice<Type>::isEmpty() const {
-	return top == 0;
-}
-
-template<class Type> bool ClassTemplatePractice<Type>::isFull() const {
-	return top == MAX;
+ClassTemplatePractice<Type>::ClassTemplatePractice(
+		const ClassTemplatePractice & st) {
+	stackSize = st.stackSize;
+	top = st.top;
+	items = new Type[stackSize];
+	for (int i = 0; i < top; i++)
+		items[i] = st.items[i];
 }
 
 template<class T> bool ClassTemplatePractice<T>::push(const T & item) {
-	if (top < MAX) {
+	if (top < stackSize) {
 		items[top++] = item;
 		return true;
 	} else {
@@ -60,6 +73,19 @@ template<class T> bool ClassTemplatePractice<T>::pop(T & item) {
 	} else {
 		return false;
 	}
+}
+
+template<class T> ClassTemplatePractice<T> & ClassTemplatePractice<T>::operator =(
+		const ClassTemplatePractice<T> &st) {
+	if (this == &st)
+		return *this;
+	delete[] items;
+	stackSize = st.stackSize;
+	top = st.top;
+	items = new T[stackSize];
+	for (int i = 0; i < top; i++)
+		items[i] = st.items[i];
+	return *this;
 }
 
 template<typename T>
@@ -102,9 +128,32 @@ void ClassTemplatePractice<T>::test_class_template_practice() const {
 	cout << "Bye" << endl;
 }
 
-template<typename T>
-ClassTemplatePractice<T>::~ClassTemplatePractice() {
-	// TODO Auto-generated destructor stub
+template<typename T> void ClassTemplatePractice<T>::test_class_template_by_pointer() const {
+	srand(time(0));
+	cout << "Please enter stack size: ";
+	int size;
+	cin >> size;
+	ClassTemplatePractice<const char *> st(size);
+	const char* in[10] = { " 1: Hank Gilgamesh", " 2: Kiki Ishtar",
+			" 3: Betty Rocker", " 4: Ian Flagranti", " 5: Wolfgang Kibble",
+			" 6: Portia Koop", " 7: Joy Almondo", " 8: Xaverie Paprika",
+			" 9: Juan Moore", " 10: Misha Mache", };
+	const char *out[10];
+	int processed = 0;
+	int next = 0;
+	while (processed < 10) {
+		if (st.isEmpty())
+			st.push(in[next++]);
+		else if (st.isFull())
+			st.pop(out[processed++]);
+		else if (rand() % 2 && next < 10)
+			st.push(in[next++]);
+		else
+			st.pop(out[processed++]);
+	}
+	for (int i = 0; i < 10; i++)
+		cout << out[i] << endl;
+	cout << "Bye" << endl;
 }
 
 #endif /* PRACTICE_CLASSTEMPLATEPRACTICE_H_ */

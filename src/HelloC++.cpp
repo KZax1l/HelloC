@@ -271,7 +271,7 @@ int main() {
 //	wk.test_mi_worker();
 
 	ClassTemplatePractice<int> ctp;
-	ctp.test_class_template_practice();
+	ctp.test_class_template_by_pointer();
 
 	return 0;
 }
