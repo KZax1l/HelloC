@@ -271,6 +271,11 @@ int main() {
 //	wk.test_mi_worker();
 
 	ClassTemplatePractice<int, 3> ctp;
+	void counts();
+	// 这里的数字是和上面的ctp的数字以及定义中的数字相同才不会报错
+	void reports(ClassTemplatePractice<int, 3> & ctp);
+	counts();
+	reports(ctp);
 	ctp.test_class_template_by_pointer();
 
 	return 0;

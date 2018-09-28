@@ -22,7 +22,9 @@ private:
 	int stackSize;
 	Type * items;
 	int top;
+	static const int count = 9;
 public:
+	int num = 8;
 	explicit ClassTemplatePractice(int ss = LENGTH);
 	ClassTemplatePractice(const ClassTemplatePractice & st);
 	bool isEmpty() {
@@ -34,6 +36,8 @@ public:
 	bool push(const Type & item);
 	bool pop(Type & item);
 	ClassTemplatePractice & operator=(const ClassTemplatePractice & st);
+	friend void counts();
+	friend void reports(ClassTemplatePractice<Type> &);
 	void test_class_template_practice() const;
 	void test_class_template_by_pointer() const;
 	virtual ~ClassTemplatePractice() {
