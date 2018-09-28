@@ -11,6 +11,6 @@ void counts() {
 	cout << "counts:" << ClassTemplatePractice<int>::count << endl;
 }
 
-void reports(ClassTemplatePractice<int, 3> & ctp) {
+void reports(ClassTemplatePractice<int> & ctp) {
 	cout << "reports num:" << ctp.num << endl;
 }

@@ -13,8 +13,23 @@ using std::cin;
 using std::cout;
 using std::endl;
 
-template<class Type = int, int LENGTH = 5>
+template<class Type = bool>
 class ClassTemplatePractice {
+private:
+	static const int count = 9;
+public:
+	int num = 8;
+	ClassTemplatePractice();
+	friend void counts();
+	friend void reports(ClassTemplatePractice<Type> &);
+	void test_class_template_practice() const;
+	void test_class_template_by_pointer() const;
+	virtual ~ClassTemplatePractice() {
+	}
+};
+
+template<typename Type = int, int LENGTH = 5>
+class Stack {
 private:
 	enum {
 		SIZE = 10
@@ -22,11 +37,10 @@ private:
 	int stackSize;
 	Type * items;
 	int top;
-	static const int count = 9;
 public:
 	int num = 8;
-	explicit ClassTemplatePractice(int ss = LENGTH);
-	ClassTemplatePractice(const ClassTemplatePractice & st);
+	explicit Stack(int ss = LENGTH);
+	Stack(const Stack & st);
 	bool isEmpty() {
 		return top == 0;
 	}
@@ -35,25 +49,25 @@ public:
 	}
 	bool push(const Type & item);
 	bool pop(Type & item);
-	ClassTemplatePractice & operator=(const ClassTemplatePractice & st);
-	friend void counts();
-	friend void reports(ClassTemplatePractice<Type> &);
-	void test_class_template_practice() const;
-	void test_class_template_by_pointer() const;
-	virtual ~ClassTemplatePractice() {
+	Stack & operator=(const Stack & st);
+	virtual ~Stack() {
 		delete[] items;
 	}
 };
 
+template<typename T>
+ClassTemplatePractice<T>::ClassTemplatePractice() {
+
+}
+
 template<class Type, int LENGTH>
-ClassTemplatePractice<Type, LENGTH>::ClassTemplatePractice(int ss) :
+Stack<Type, LENGTH>::Stack(int ss) :
 		stackSize(ss), top(0) {
 	items = new Type[stackSize];
 }
 
 template<class Type, int LENGTH>
-ClassTemplatePractice<Type, LENGTH>::ClassTemplatePractice(
-		const ClassTemplatePractice & st) {
+Stack<Type, LENGTH>::Stack(const Stack & st) {
 	stackSize = st.stackSize;
 	top = st.top;
 	items = new Type[stackSize];
@@ -61,8 +75,7 @@ ClassTemplatePractice<Type, LENGTH>::ClassTemplatePractice(
 		items[i] = st.items[i];
 }
 
-template<class T, int L> bool ClassTemplatePractice<T, L>::push(
-		const T & item) {
+template<class T, int L> bool Stack<T, L>::push(const T & item) {
 	if (top < stackSize) {
 		items[top++] = item;
 		return true;
@@ -71,7 +84,7 @@ template<class T, int L> bool ClassTemplatePractice<T, L>::push(
 	}
 }
 
-template<class T, int L> bool ClassTemplatePractice<T, L>::pop(T & item) {
+template<class T, int L> bool Stack<T, L>::pop(T & item) {
 	if (top > 0) {
 		item = items[--top];
 		return true;
@@ -80,8 +93,8 @@ template<class T, int L> bool ClassTemplatePractice<T, L>::pop(T & item) {
 	}
 }
 
-template<class T, int L> ClassTemplatePractice<T, L> & ClassTemplatePractice<T,
-		L>::operator =(const ClassTemplatePractice<T, L> &st) {
+template<class T, int L> Stack<T, L> & Stack<T, L>::operator =(
+		const Stack<T, L> &st) {
 	if (this == &st)
 		return *this;
 	delete[] items;
@@ -93,9 +106,9 @@ template<class T, int L> ClassTemplatePractice<T, L> & ClassTemplatePractice<T,
 	return *this;
 }
 
-template<typename T, int L>
-void ClassTemplatePractice<T, L>::test_class_template_practice() const {
-	ClassTemplatePractice<std::string, 5> st;
+template<typename T>
+void ClassTemplatePractice<T>::test_class_template_practice() const {
+	Stack<std::string, 5> st;
 	char ch;
 	std::string po;
 	cout << "Please enter A to add a purchase order, " << endl
@@ -133,12 +146,12 @@ void ClassTemplatePractice<T, L>::test_class_template_practice() const {
 	cout << "Bye" << endl;
 }
 
-template<typename T, int L> void ClassTemplatePractice<T, L>::test_class_template_by_pointer() const {
+template<typename T> void ClassTemplatePractice<T>::test_class_template_by_pointer() const {
 	srand(time(0));
 	cout << "Please enter stack size: ";
 	int size;
 	cin >> size;
-	ClassTemplatePractice<const char *, 5> st(size);
+	Stack<const char *, 5> st(size);
 	const char* in[10] = { " 1: Hank Gilgamesh", " 2: Kiki Ishtar",
 			" 3: Betty Rocker", " 4: Ian Flagranti", " 5: Wolfgang Kibble",
 			" 6: Portia Koop", " 7: Joy Almondo", " 8: Xaverie Paprika",

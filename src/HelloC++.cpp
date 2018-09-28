@@ -270,10 +270,10 @@ int main() {
 //	Waiter wk;
 //	wk.test_mi_worker();
 
-	ClassTemplatePractice<int, 3> ctp;
+	ClassTemplatePractice<int> ctp;
+	// 使用友元函数前要声明，否则极可能报错
 	void counts();
-	// 这里的数字是和上面的ctp的数字以及定义中的数字相同才不会报错
-	void reports(ClassTemplatePractice<int, 3> & ctp);
+	void reports(ClassTemplatePractice<int> & ctp);
 	counts();
 	reports(ctp);
 	ctp.test_class_template_by_pointer();
