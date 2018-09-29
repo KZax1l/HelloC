@@ -13,15 +13,23 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+template<typename T> void countT();
+template<typename T> void reportT(T &);
+
 template<class Type = bool>
 class ClassTemplatePractice {
 private:
 	static const int count = 9;
 public:
 	int num = 8;
-	ClassTemplatePractice();
+	ClassTemplatePractice(int num = 0) :
+			num(num) {
+	}
 	friend void counts();
 	friend void reports(ClassTemplatePractice<Type> &);
+	friend void countT<Type>();
+	friend void reportT<ClassTemplatePractice<Type>>(
+			ClassTemplatePractice<Type> &); //可以写成reportT<>(ClassTemplatePractice<Type> &);
 	void test_class_template_practice() const;
 	void test_class_template_by_pointer() const;
 	virtual ~ClassTemplatePractice() {
@@ -54,11 +62,6 @@ public:
 		delete[] items;
 	}
 };
-
-template<typename T>
-ClassTemplatePractice<T>::ClassTemplatePractice() {
-
-}
 
 template<class Type, int LENGTH>
 Stack<Type, LENGTH>::Stack(int ss) :
@@ -147,6 +150,9 @@ void ClassTemplatePractice<T>::test_class_template_practice() const {
 }
 
 template<typename T> void ClassTemplatePractice<T>::test_class_template_by_pointer() const {
+	ClassTemplatePractice<bool> ctp(3);
+	reportT(ctp);
+
 	srand(time(0));
 	cout << "Please enter stack size: ";
 	int size;
@@ -172,6 +178,15 @@ template<typename T> void ClassTemplatePractice<T>::test_class_template_by_point
 	for (int i = 0; i < 10; i++)
 		cout << out[i] << endl;
 	cout << "Bye" << endl;
+}
+
+template<typename T> void countT() {
+	cout << "template size: " << sizeof(T) << ";";
+	cout << "template count: " << ClassTemplatePractice<T>::count << endl;
+}
+
+template<typename T> void reportT(T & t) {
+	cout << "friend template report num: " << t.num << endl;
 }
 
 #endif /* PRACTICE_CLASSTEMPLATEPRACTICE_H_ */

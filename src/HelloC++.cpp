@@ -276,6 +276,10 @@ int main() {
 	void reports(ClassTemplatePractice<int> & ctp);
 	counts();
 	reports(ctp);
+	countT<int>();
+	countT<double>();
+	ClassTemplatePractice<double> p(7);
+	reportT(p);
 	ctp.test_class_template_by_pointer();
 
 	return 0;
