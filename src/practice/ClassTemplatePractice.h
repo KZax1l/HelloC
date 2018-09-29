@@ -19,17 +19,19 @@ template<typename T> void reportT(T &);
 template<class Type = bool>
 class ClassTemplatePractice {
 private:
+	int hide;
 	static const int count = 9;
 public:
 	int num = 8;
 	ClassTemplatePractice(int num = 0) :
-			num(num) {
+			num(num), hide(num) {
 	}
 	friend void counts();
 	friend void reports(ClassTemplatePractice<Type> &);
 	friend void countT<Type>();
 	friend void reportT<ClassTemplatePractice<Type>>(
 			ClassTemplatePractice<Type> &); //可以写成reportT<>(ClassTemplatePractice<Type> &);
+	template<typename T, typename S> friend void show(T &, S &); //这里的typename不能和类的typename的'Type'相同
 	void test_class_template_practice() const;
 	void test_class_template_by_pointer() const;
 	virtual ~ClassTemplatePractice() {
@@ -152,6 +154,7 @@ void ClassTemplatePractice<T>::test_class_template_practice() const {
 template<typename T> void ClassTemplatePractice<T>::test_class_template_by_pointer() const {
 	ClassTemplatePractice<bool> ctp(3);
 	reportT(ctp);
+	show(ctp, ctp);
 
 	srand(time(0));
 	cout << "Please enter stack size: ";
@@ -187,6 +190,10 @@ template<typename T> void countT() {
 
 template<typename T> void reportT(T & t) {
 	cout << "friend template report num: " << t.num << endl;
+}
+
+template<typename T, typename X> void show(T & t, X & x) {
+	cout << "show hide:" << t.hide << "," << x.hide << endl;
 }
 
 #endif /* PRACTICE_CLASSTEMPLATEPRACTICE_H_ */
