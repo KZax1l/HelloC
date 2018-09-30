@@ -20,6 +20,7 @@
 #include"./practice/BaseDMA.h"
 #include"./practice/MIworker.h"
 #include"./practice/ClassTemplatePractice.h"
+#include"./practice/ClassFriendPractice.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -270,17 +271,20 @@ int main() {
 //	Waiter wk;
 //	wk.test_mi_worker();
 
-	ClassTemplatePractice<int> ctp;
-	// 使用友元函数前要声明，否则极可能报错
-	void counts();
-	void reports(ClassTemplatePractice<int> & ctp);
-	counts();
-	reports(ctp);
-	countT<int>();
-	countT<double>();
-	ClassTemplatePractice<double> p(7);
-	reportT(p);
-	ctp.test_class_template_by_pointer();
+//	ClassTemplatePractice<int> ctp;
+//	// 使用友元函数前要声明，否则极可能报错
+//	void counts();
+//	void reports(ClassTemplatePractice<int> & ctp);
+//	counts();
+//	reports(ctp);
+//	countT<int>();
+//	countT<double>();
+//	ClassTemplatePractice<double> p(7);
+//	reportT(p);
+//	ctp.test_class_template_by_pointer();
+
+	ClassFriendPractice cfp;
+	cfp.main();
 
 	return 0;
 }

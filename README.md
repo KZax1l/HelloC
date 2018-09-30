@@ -6,6 +6,7 @@
 - **BaseDMA**				:	使用动态内存分配和友元的继承范例
 - **MIworker**				:	多重继承实例
 - **ClassTemplatePractice**	:	类模板范例
+- **ClassFriendPractice**	:	友元类范例
 
 ## 关键字
 
@@ -71,3 +72,5 @@
 - **多重继承（multiple inheritance, MI）**
 
 - **虚基类**
+
+- **友元类**
