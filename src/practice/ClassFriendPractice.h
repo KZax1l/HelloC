@@ -84,6 +84,8 @@ public:
 	}
 	void settings() const;
 	void buzz(Remote & r);
+	friend void sync(Tv & t, Remote & r);
+	friend void sync(Remote & r, Tv & t);
 };
 
 inline bool RemoteTv::volup(Tv & t) {
@@ -153,10 +155,19 @@ public:
 	int get_mode() {
 		return mode;
 	}
+	friend void sync(Tv & t, Remote & r);
+	friend void sync(Remote & r, Tv & t);
 };
 
 inline void Tv::buzz(Remote & r) {
 	r.mode = -1;
+}
+
+inline void sync(Tv & t, Remote & r) {
+
+}
+inline void sync(Remote & r, Tv & t) {
+
 }
 
 #endif /* PRACTICE_CLASSFRIENDPRACTICE_H_ */
