@@ -15,6 +15,28 @@ public:
 	void main();
 };
 
+class Tv;
+
+class RemoteTv {
+private:
+	int mode;
+public:
+	enum {
+		TV, VCR
+	};
+	RemoteTv(int m = TV) :
+			mode(m) {
+	}
+	bool volup(Tv & t);
+	bool voldown(Tv & t);
+	void onoff(Tv & t);
+	void chanup(Tv & t);
+	void chandown(Tv & t);
+	void set_mode(Tv & t);
+	void set_input(Tv & t);
+	void set_chan(Tv & t, int c);
+};
+
 class Tv {
 private:
 	int state;
@@ -24,7 +46,8 @@ private:
 	int mode;
 	int input;
 public:
-	friend class Remote;
+	friend void RemoteTv::set_chan(Tv & t, int c);
+	friend class Remote; //这样做使整个Remote类成为Tv的友元，有时候只需某个方法成为友元时就显得多余了
 	enum {
 		Off, On
 	};
@@ -59,6 +82,38 @@ public:
 	}
 	void settings() const;
 };
+
+inline bool RemoteTv::volup(Tv & t) {
+	return t.volup();
+}
+
+inline bool RemoteTv::voldown(Tv & t) {
+	return t.voldown();
+}
+
+inline void RemoteTv::onoff(Tv & t) {
+	t.onoff();
+}
+
+inline void RemoteTv::chanup(Tv & t) {
+	t.chanup();
+}
+
+inline void RemoteTv::chandown(Tv & t) {
+	t.chandown();
+}
+
+inline void RemoteTv::set_mode(Tv & t) {
+	t.set_mode();
+}
+
+inline void RemoteTv::set_input(Tv & t) {
+	t.set_input();
+}
+
+inline void RemoteTv::set_chan(Tv & t, int c) {
+	t.channel = c;
+}
 
 class Remote {
 private:

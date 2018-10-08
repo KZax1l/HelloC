@@ -29,7 +29,7 @@ void ClassFriendPractice::main() {
 	cout << endl << "Adjusted settings for 27\" TV:" << endl;
 	s27.settings();
 
-	Remote grey;
+	RemoteTv grey;
 
 	grey.set_chan(s27, 10);
 	grey.volup(s27);
