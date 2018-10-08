@@ -37,6 +37,8 @@ public:
 	void set_chan(Tv & t, int c);
 };
 
+class Remote;
+
 class Tv {
 private:
 	int state;
@@ -81,6 +83,7 @@ public:
 		input = (input == TV) ? VCR : TV;
 	}
 	void settings() const;
+	void buzz(Remote & r);
 };
 
 inline bool RemoteTv::volup(Tv & t) {
@@ -119,6 +122,7 @@ class Remote {
 private:
 	int mode;
 public:
+	friend class Tv;
 	Remote(int m = Tv::TV) :
 			mode(m) {
 	}
@@ -146,6 +150,13 @@ public:
 	void set_input(Tv & t) {
 		t.set_input();
 	}
+	int get_mode() {
+		return mode;
+	}
 };
+
+inline void Tv::buzz(Remote & r) {
+	r.mode = -1;
+}
 
 #endif /* PRACTICE_CLASSFRIENDPRACTICE_H_ */

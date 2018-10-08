@@ -42,6 +42,11 @@ void ClassFriendPractice::main() {
 	grey.set_chan(s32, 28);
 	cout << endl << "32\" settings:" << endl;
 	s32.settings();
+
+	Remote r;
+	cout << endl << "Remote mode -> " << r.get_mode() << endl;
+	s32.buzz(r);
+	cout << "Remote mode -> " << r.get_mode() << endl;
 }
 
 bool Tv::volup() {
