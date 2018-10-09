@@ -7,12 +7,13 @@
 
 #ifndef PRACTICE_NESTINGCLASSPRACTICE_H_
 #define PRACTICE_NESTINGCLASSPRACTICE_H_
+#include <iostream>
 
 template<typename Item>
 class NestingClassPractice {
 private:
 	enum {
-		Q_SIZE = 10
+		Q_SIZE = 3
 	};
 	class Node {
 	public:
@@ -46,6 +47,7 @@ public:
 	}
 	bool enqueue(const Item & item);
 	bool dequeue(Item & item);
+	void main() const;
 };
 
 template<typename Item>
@@ -93,6 +95,29 @@ bool NestingClassPractice<Item>::dequeue(Item & item) {
 	if (items == 0)
 		rear = 0;
 	return true;
+}
+
+template<typename T>
+void NestingClassPractice<T>::main() const {
+	using std::string;
+	using std::cin;
+	using std::cout;
+	using std::endl;
+
+	NestingClassPractice<string> cs(5);
+	string temp;
+	while (!cs.is_full()) {
+		cout
+				<< "Please enter your name, you will be served in the order of arrival."
+				<< endl << "name: ";
+		getline(cin, temp);
+		cs.enqueue(temp);
+	}
+	cout << "The queue is full. Processing begins!" << endl;
+	while (!cs.is_empty()) {
+		cs.dequeue(temp);
+		cout << "Now processing " << temp << "..." << endl;
+	}
 }
 
 #endif /* PRACTICE_NESTINGCLASSPRACTICE_H_ */

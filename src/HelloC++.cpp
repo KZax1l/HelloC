@@ -21,6 +21,7 @@
 #include"./practice/MIworker.h"
 #include"./practice/ClassTemplatePractice.h"
 #include"./practice/ClassFriendPractice.h"
+#include"./practice/NestingClassPractice.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -283,8 +284,11 @@ int main() {
 //	reportT(p);
 //	ctp.test_class_template_by_pointer();
 
-	ClassFriendPractice cfp;
-	cfp.main();
+//	ClassFriendPractice cfp;
+//	cfp.main();
+
+	NestingClassPractice<int> ncp;
+	ncp.main();
 
 	return 0;
 }
