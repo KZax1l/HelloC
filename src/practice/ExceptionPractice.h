@@ -15,6 +15,7 @@ public:
 	virtual ~ExceptionPractice();
 	void exception_abort();
 	void exception_code();
+	void exception_try_catch();
 	void main() const;
 };
 
