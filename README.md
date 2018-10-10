@@ -7,6 +7,8 @@
 - **MIworker**				:	多重继承实例
 - **ClassTemplatePractice**	:	类模板范例
 - **ClassFriendPractice**	:	友元类范例
+- **NestingClassPractice**	:	嵌套类范例
+- **ExceptionPractice**		:	程序异常处理范例
 
 ## 关键字
 
@@ -77,3 +79,5 @@
 - **友元类**
 
 - **嵌套类**
+
+- **异常**
