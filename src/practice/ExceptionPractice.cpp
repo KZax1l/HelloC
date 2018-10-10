@@ -7,6 +7,7 @@
 
 #include "ExceptionPractice.h"
 #include <stdlib.h>
+#include <float.h>
 
 ExceptionPractice::ExceptionPractice() {
 	// TODO Auto-generated constructor stub
@@ -34,6 +35,28 @@ void ExceptionPractice::exception_abort() {
 	cout << "Bye!" << endl;
 }
 
+void ExceptionPractice::exception_code() {
+	using std::cin;
+	using std::cout;
+	using std::endl;
+	double hmean(double a, double b, double * ans);
+
+	double x, y, z;
+	cout << "========== exception_code ==========" << endl
+			<< "Enter two numbers: ";
+	while (cin >> x >> y) {
+		if (hmean(x, y, &z)) {
+			cout << "Harmonic mean of " << x << " and " << y << " is " << z
+					<< endl;
+		} else {
+			cout << "One value should not be the negative "
+					<< "of the other - try again." << endl;
+		}
+		cout << "Enter next set of numbers <q to quit>: ";
+	}
+	cout << "Bye!" << endl;
+}
+
 double hmean(double a, double b) {
 	using std::cout;
 	using std::endl;
@@ -42,4 +65,22 @@ double hmean(double a, double b) {
 		abort(); // or use 'exit()' method
 	}
 	return 2.0 * a * b / (a + b);
+}
+
+bool hmean(double a, double b, double * ans) {
+	using std::cout;
+	using std::endl;
+	if (a == -b) {
+		*ans = DBL_MAX;
+		return false;
+	} else {
+		*ans = 2.0 * a * b / (a + b);
+		return true;
+	}
+}
+
+void ExceptionPractice::main() const {
+	ExceptionPractice ep;
+	ep.exception_code();
+	ep.exception_abort();
 }

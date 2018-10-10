@@ -14,6 +14,8 @@ public:
 	ExceptionPractice();
 	virtual ~ExceptionPractice();
 	void exception_abort();
+	void exception_code();
+	void main() const;
 };
 
 #endif /* PRACTICE_EXCEPTIONPRACTICE_H_ */

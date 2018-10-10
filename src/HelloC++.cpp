@@ -292,7 +292,7 @@ int main() {
 //	ncp.main();
 
 	ExceptionPractice ep;
-	ep.exception_abort();
+	ep.main();
 
 	return 0;
 }
