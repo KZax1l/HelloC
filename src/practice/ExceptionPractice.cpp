@@ -9,14 +9,19 @@
 #include <stdlib.h>
 #include <float.h>
 #include <math.h>
+#include <cstring>
 
-ExceptionPractice::ExceptionPractice() {
+ExceptionPractice::ExceptionPractice(const char * str) {
 	// TODO Auto-generated constructor stub
-
+	std::strcpy(word, str);
+	std::cout << "exception practice object " << word << " created"
+			<< std::endl;
 }
 
 ExceptionPractice::~ExceptionPractice() {
 	// TODO Auto-generated destructor stub
+	std::cout << "exception practice object " << word << " destroyed"
+			<< std::endl;
 }
 
 /**
@@ -122,6 +127,40 @@ void ExceptionPractice::exception_try_catch_by_object() {
 	cout << "Bye!" << endl;
 }
 
+/**
+ * Òì³£µÄ¶ÑÕ»½âÍË
+ */
+void ExceptionPractice::exception_stack() {
+	using std::cin;
+	using std::cout;
+	using std::endl;
+	double means(double a, double b);
+
+	double x, y, z;
+	ExceptionPractice ep("found in exception_stack()");
+	cout << "========== exception_stack ==========" << endl
+			<< "Enter two numbers: ";
+	while (cin >> x >> y) {
+		try {
+			z = means(x, y);
+			cout << "The mean mean of " << x << " and " << y << " is " << z
+					<< endl;
+			cout << "Enter next pair: ";
+		} catch (bad_hmean & bg) {
+			bg.mesg();
+			cout << "Try again." << endl;
+			continue;
+		} catch (bad_gmean & hg) {
+			cout << hg.mesg();
+			cout << "Values used: " << hg.v1 << ", " << hg.v2 << endl;
+			cout << "Sorry, you don't get to play any more." << endl;
+			break;
+		}
+	}
+	ep.show();
+	cout << "Bye!" << endl;
+}
+
 double hmean(double a, double b) {
 	using std::cout;
 	using std::endl;
@@ -168,8 +207,25 @@ double gmean_throw_bad_gmean(double a, double b) throw (bad_gmean) {
 	return sqrt(a * b);
 }
 
+double means(double a, double b) throw (bad_hmean, bad_gmean) {
+	double am, hm, gm;
+	ExceptionPractice ep("found in means()");
+	am = (a + b) / 2.0;
+	try {
+		hm = hmean_throw_bad_hmean(a, b);
+		gm = gmean_throw_bad_gmean(a, b);
+	} catch (bad_hmean & bg) {
+		bg.mesg();
+		std::cout << "Caught in means()" << std::endl;
+		throw;
+	}
+	ep.show();
+	return (am + hm + gm) / 3.0;
+}
+
 void ExceptionPractice::main() const {
 	ExceptionPractice ep;
+	ep.exception_stack();
 	ep.exception_try_catch_by_object();
 	ep.exception_try_catch();
 	ep.exception_code();

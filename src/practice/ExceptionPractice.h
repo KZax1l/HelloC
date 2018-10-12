@@ -10,14 +10,18 @@
 #include <iostream>
 
 class ExceptionPractice {
+private:
+	char word[40];
 public:
-	ExceptionPractice();
+	ExceptionPractice(const char * str = "demo");
 	virtual ~ExceptionPractice();
 	void exception_abort();
 	void exception_code();
 	void exception_try_catch();
 	void exception_try_catch_by_object();
 	void main() const;
+	void show() const;
+	void exception_stack();
 };
 
 class bad_hmean {
@@ -48,6 +52,10 @@ public:
 
 inline const char * bad_gmean::mesg() {
 	return "gmean() arguments should be >= 0\n";
+}
+
+inline void ExceptionPractice::show() const {
+	std::cout << "exception practice object " << word << " lives!" << std::endl;
 }
 
 #endif /* PRACTICE_EXCEPTIONPRACTICE_H_ */
