@@ -29,6 +29,9 @@ void RTTIPractice::main() const {
 		if (ps = dynamic_cast<Superb *>(pg)) {
 			ps->say();
 		}
+		if (typeid(Magnificent) == typeid(*pg)) {
+			cout << "Yes, you're really magnificent." << endl;
+		}
 	}
 }
 
