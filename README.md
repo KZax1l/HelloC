@@ -9,8 +9,9 @@
 - **ClassFriendPractice**	:	友元类范例
 - **NestingClassPractice**	:	嵌套类范例
 - **ExceptionPractice**		:	程序异常处理范例
+- **RTTIPractice**			:	RTTI范例
 
-## 关键字
+## 关键字、操作符
 
 - **define**
 - **typedef**
@@ -18,6 +19,8 @@
 - **explicit**
 - **operator**
 - **inline**
+- **dynamic_cast**	:	用来判断是否可以安全地将对象的地址赋给特定类型的指针
+- **typeid**
 
 ## 知识点
 
@@ -81,3 +84,7 @@
 - **嵌套类**
 
 - **异常**
+
+- **RTTI（运行阶段类型识别, Runtime Type Identification）**
+
+	> RTTI只适用于包含虚函数的类

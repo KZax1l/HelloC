@@ -23,6 +23,7 @@
 #include"./practice/ClassFriendPractice.h"
 #include"./practice/NestingClassPractice.h"
 #include"./practice/ExceptionPractice.h"
+#include"./practice/RTTIPractice.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -291,8 +292,11 @@ int main() {
 //	NestingClassPractice<int> ncp;
 //	ncp.main();
 
-	ExceptionPractice ep;
-	ep.main();
+//	ExceptionPractice ep;
+//	ep.main();
+
+	RTTIPractice p;
+	p.main();
 
 	return 0;
 }
