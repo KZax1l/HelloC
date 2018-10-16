@@ -21,6 +21,9 @@
 - **inline**
 - **dynamic_cast**	:	用来判断是否可以安全地将对象的地址赋给特定类型的指针
 - **typeid**		:	该操作符使得能够确定两个对象是否为同种类型
+- **const_cast**
+- **static_cast**
+- **reinterpret_cast**
 
 ## 知识点
 
@@ -88,3 +91,14 @@
 - **RTTI（运行阶段类型识别, Runtime Type Identification）**
 
 	> RTTI只适用于包含虚函数的类
+
+- **类型转换操作符**
+
+	- dynamic_cast
+	- const_cast
+	- static_cast
+	- reinterpret_cast
+
+	---
+
+	> 以 **const_cast** 为例，这四个操作符的句法都是 **const_cast<type-name>(expression>)** 的形式
