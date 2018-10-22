@@ -7,6 +7,8 @@
 
 #include "StringPractice.h"
 #include<iostream>
+#include<fstream>
+#include<stdlib.h>
 
 StringPractice::StringPractice() {
 	// TODO Auto-generated constructor stub
@@ -41,4 +43,33 @@ void StringPractice::main() const {
 	cout << six << ", ";
 	string seven(&five[6], &five[10]);
 	cout << seven << "..." << endl;
+
+	get_file_line();
+}
+
+void StringPractice::get_file_line() const {
+	using std::cerr;
+	using std::cout;
+	using std::endl;
+	using std::ifstream;
+	using std::_Ios_Openmode::_S_in;
+	using std::_Ios_Openmode::_S_out;
+	using std::string;
+	ifstream fin;
+	fin.open("README.md", _S_in | _S_out);
+	if (!fin.is_open()) {
+		cerr << "Can't open file. Bye." << endl;
+		exit(EXIT_FAILURE);
+	}
+	string item;
+	int count = 0;
+
+	getline(fin, item, ':');
+	while (fin) {
+		++count;
+		cout << count << ": " << item << endl;
+		getline(fin, item, ':');
+	}
+	cout << "Done" << endl;
+	fin.close();
 }
