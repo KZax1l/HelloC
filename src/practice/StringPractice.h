@@ -14,6 +14,7 @@ public:
 	virtual ~StringPractice();
 	void main() const;
 	void get_file_line() const;
+	void string_find_game() const;
 };
 
 #endif /* PRACTICE_STRINGPRACTICE_H_ */
