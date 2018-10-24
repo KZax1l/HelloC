@@ -103,3 +103,5 @@
 	---
 
 	> 以 **const_cast** 为例，这四个操作符的句法都是 **const_cast<type-name>(expression>)** 的形式
+
+- **auto_ptr类**
