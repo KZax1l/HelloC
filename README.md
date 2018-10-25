@@ -105,3 +105,13 @@
 	> 以 **const_cast** 为例，这四个操作符的句法都是 **const_cast<type-name>(expression>)** 的形式
 
 - **auto_ptr类**
+
+- **STL**
+
+	**STL**提供了一组表示容器、迭代器、函数对象和算法的模板。**C++ STL**中最基本以及最常用的类或容器无非就是以下几个：
+	
+	- string
+	- vector
+	- set
+	- list
+	- map
