@@ -25,6 +25,7 @@
 #include"./practice/ExceptionPractice.h"
 #include"./practice/RTTIPractice.h"
 #include"./practice/StringPractice.h"
+#include"./practice/CoutPractice.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -299,8 +300,11 @@ int main() {
 //	RTTIPractice p;
 //	p.main();
 
-	StringPractice sp;
-	sp.main();
+//	StringPractice sp;
+//	sp.main();
+
+	CoutPractice cp;
+	cp.main();
 
 	return 0;
 }

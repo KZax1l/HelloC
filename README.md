@@ -11,6 +11,7 @@
 - **ExceptionPractice**		:	程序异常处理范例
 - **RTTIPractice**			:	RTTI范例
 - **StringPractice**		:	string类的使用范例
+- **CoutPractice**			:	使用cout进行输出的使用范例
 
 ## 关键字、操作符
 
