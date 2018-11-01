@@ -12,6 +12,7 @@ class CoutPractice {
 public:
 	CoutPractice();
 	void print_address() const; //¥Ú”°µÿ÷∑
+	void print_by_put_write() const;
 	void main() const;
 	virtual ~CoutPractice();
 };
