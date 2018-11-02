@@ -73,6 +73,16 @@ void CoutPractice::print_fill() const {
 	}
 }
 
+void CoutPractice::print_precision() const {
+	float price1 = 20.40;
+	float price2 = 1.9 + 8.0 / 9.0;
+	cout << "\"Furry Friends\" is $" << price1 << "!\n";
+	cout << "\"Fiery Friends\" is $" << price2 << "!\n";
+	cout.precision(2);
+	cout << "\"Furry Friends\" is $" << price1 << "!\n";
+	cout << "\"Fiery Friends\" is $" << price2 << "!\n";
+}
+
 void CoutPractice::print_format() const {
 	using std::cin;
 	using std::hex;
@@ -95,6 +105,7 @@ void CoutPractice::main() const {
 	print_by_put_write();
 	print_width();
 	print_fill();
+	print_precision();
 	print_format();
 }
 
