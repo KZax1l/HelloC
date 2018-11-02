@@ -44,9 +44,27 @@ void CoutPractice::print_by_put_write() const {
 	cout.write(state2, len + 7) << endl;
 }
 
+void CoutPractice::print_format() const {
+	using std::cin;
+	using std::hex;
+	using std::oct;
+	cout << "Enter an integer: ";
+	int n;
+	cin >> n;
+	cout << "n \t n*n\n";
+	cout << n << " \t " << n * n << "(decimal)\n";
+	cout << hex;
+	cout << n << " \t ";
+	cout << n * n << "(hexadecimal)\n";
+	cout << oct << n << " \t " << n * n << "(octal)\n";
+	dec(cout);
+	cout << n << " \t " << n * n << "(decimal)\n";
+}
+
 void CoutPractice::main() const {
 	print_address();
 	print_by_put_write();
+	print_format();
 }
 
 CoutPractice::~CoutPractice() {
