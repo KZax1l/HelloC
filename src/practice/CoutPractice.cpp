@@ -62,6 +62,17 @@ void CoutPractice::print_width() const {
 	}
 }
 
+void CoutPractice::print_fill() const {
+	cout.fill('*');
+	const char * staff[2] = { "Waldo Whipsnade", "Wilmarie Wooper" };
+	long bonus[2] = { 900, 1350 };
+	for (int i = 0; i < 2; i++) {
+		cout << staff[i] << ": $";
+		cout.width(7);
+		cout << bonus[i] << '\n';
+	}
+}
+
 void CoutPractice::print_format() const {
 	using std::cin;
 	using std::hex;
@@ -83,6 +94,7 @@ void CoutPractice::main() const {
 	print_address();
 	print_by_put_write();
 	print_width();
+	print_fill();
 	print_format();
 }
 

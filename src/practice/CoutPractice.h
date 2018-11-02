@@ -14,6 +14,7 @@ public:
 	void print_address() const; //打印地址
 	void print_by_put_write() const;
 	void print_width() const; //调整字段宽度
+	void print_fill() const; //填充字段
 	void print_format() const;
 	void main() const;
 	virtual ~CoutPractice();
