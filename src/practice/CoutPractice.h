@@ -17,6 +17,7 @@ public:
 	void print_fill() const; //填充字段
 	void print_precision() const;
 	void print_setf() const;
+	void print_iomanip() const;
 	void print_format() const; //设置浮点数的显示精度
 	void main() const;
 	virtual ~CoutPractice();

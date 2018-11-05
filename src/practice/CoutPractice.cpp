@@ -9,6 +9,7 @@
 #include<iostream>
 #include<string.h>
 #include <math.h>
+#include <iomanip>
 using std::cout;
 using std::endl;
 using std::ios_base;
@@ -149,6 +150,25 @@ void CoutPractice::print_setf() const {
 	}
 }
 
+void CoutPractice::print_iomanip() const {
+	using std::showpoint;
+	using std::fixed;
+	using std::right;
+	using std::setw;
+	using std::setfill;
+	using std::setprecision;
+	cout << showpoint << fixed << right;
+	cout << setw(6) << "N" << setw(14) << "square root" << setw(15)
+			<< "fourth root\n";
+	double root;
+	for (int n = 10; n <= 100; n += 10) {
+		root = sqrt(double(n));
+		cout << setw(6) << setfill('.') << n << setfill(' ') << setw(12)
+				<< setprecision(3) << root << setw(14) << setprecision(4)
+				<< sqrt(root) << endl;
+	}
+}
+
 void CoutPractice::print_format() const {
 	using std::cin;
 	using std::hex;
@@ -173,6 +193,7 @@ void CoutPractice::main() const {
 	print_fill();
 	print_precision();
 	print_setf();
+	print_iomanip();
 	print_format();
 }
 
