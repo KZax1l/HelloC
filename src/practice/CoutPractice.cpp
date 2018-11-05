@@ -10,6 +10,7 @@
 #include<string.h>
 using std::cout;
 using std::endl;
+using std::ios_base;
 
 CoutPractice::CoutPractice() {
 	// TODO Auto-generated constructor stub
@@ -83,6 +84,22 @@ void CoutPractice::print_precision() const {
 	cout << "\"Fiery Friends\" is $" << price2 << "!\n";
 }
 
+void CoutPractice::print_setf() const {
+	int temperature = 63;
+	cout << "Today's water temperature: ";
+	cout.setf(ios_base::showpoint);
+	cout << temperature << endl;
+	cout << "For our programming friends, that's\n";
+	cout << std::hex << temperature << endl;
+	cout.setf(ios_base::uppercase);
+	cout.setf(ios_base::showbase);
+	cout << "or\n";
+	cout << temperature << endl;
+	cout << "How " << true << "! oops - How ";
+	cout.setf(ios_base::boolalpha);
+	cout << true << "!\n";
+}
+
 void CoutPractice::print_format() const {
 	using std::cin;
 	using std::hex;
@@ -106,6 +123,7 @@ void CoutPractice::main() const {
 	print_width();
 	print_fill();
 	print_precision();
+	print_setf();
 	print_format();
 }
 
