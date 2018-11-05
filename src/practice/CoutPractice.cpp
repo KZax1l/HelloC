@@ -136,6 +136,17 @@ void CoutPractice::print_setf() const {
 		cout.width(12);
 		cout << sqrt(double(n)) << "|\n";
 	}
+
+	using std::left;
+	using std::scientific;
+	cout << left << scientific;
+	cout << "Left Justification: \n";
+	for (n = 1; n <= 41; n += 10) {
+		cout.width(4);
+		cout << n << "|";
+		cout.width(12);
+		cout << sqrt(double(n)) << "|\n";
+	}
 }
 
 void CoutPractice::print_format() const {
