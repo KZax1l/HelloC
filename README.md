@@ -13,6 +13,7 @@
 - **StringPractice**		:	string类的使用范例
 - **CoutPractice**			:	使用cout进行输出的使用范例
 - **CinPractice**			:	使用cin进行输入的使用范例
+- **FilePractice**			:	文件的使用范例
 
 ## 关键字、操作符
 

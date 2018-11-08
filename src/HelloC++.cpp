@@ -27,6 +27,7 @@
 #include"./practice/StringPractice.h"
 #include"./practice/CoutPractice.h"
 #include"./practice/CinPractice.h"
+#include"./practice/FilePractice.h"
 using namespace std;
 typedef char* char_pointer;
 
@@ -307,8 +308,11 @@ int main() {
 //	CoutPractice cp;
 //	cp.main();
 
-	CinPractice cip;
-	cip.main();
+//	CinPractice cip;
+//	cip.main();
+
+	FilePractice fp;
+	fp.main();
 
 	return 0;
 }
