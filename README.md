@@ -29,6 +29,7 @@
 - **static_cast**
 - **reinterpret_cast**
 - **extern**		:	变量声明
+- **union**			:	共用体，注意它和**struct**的区别
 
 ## 操作符
 
